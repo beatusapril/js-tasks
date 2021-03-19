@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .triangle{
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<input type="button" id="hider" value="Нажмите, чтобы спрятать текст"/>
+
+<div id="text">Текст</div>
+
+<input type="button" id="hidYourself" value="Нажмите, чтобы спрятать кнопку"/><br>
+
+<span id="close" class="triangle">▶</span> <span id="open" class="triangle">▼</span> Сладости (нажми меня)!
+<ul id = "list" class="sweet">
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+</ul>
+
+<script>
+    let elem = document.getElementById("hider");
+    elem.addEventListener('click', function hidden() {
+        document.getElementById("text").hidden = true;
+    });
+    //Создайте кнопку, которая будет скрывать себя по нажатию.
+    document.getElementById("hidYourself").addEventListener('click', function hidden() {
+        this.hidden = true;
+    });
+    let close = document.getElementById("close");
+    let open = document.getElementById("open");
+    let ul = document.getElementById("list");
+    open.hidden = true;
+    ul.hidden = true;
+    close.onclick = () => {
+        close.hidden = true;
+        open.hidden = false;
+        ul.hidden = false;
+    };
+    open.onclick = () => {
+        close.hidden = false;
+        open.hidden = true;
+        ul.hidden = true;
+    };
+</script>
+
+</body>
+</html>

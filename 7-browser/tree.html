@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container">
+
+</div>
+<script>
+    let data = {
+        "Рыбы": {
+            "форель": {},
+            "лосось": {}
+        },
+
+        "Деревья": {
+            "Огромные": {
+                "секвойя": {},
+                "дуб": {}
+            },
+            "Цветковые": {
+                "яблоня": {},
+                "магнолия": {}
+            }
+        }
+    };
+
+
+    function parseObject(object) {
+        if (!Object.keys(object).length) {
+            return;
+        }
+        let ul = document.createElement('ul');
+        for (var prop in object) {
+            let li = document.createElement('li');
+            li.innerHTML = prop;
+            elem = parseObject(object[prop]);
+            if (elem) {
+                li.append(elem);
+            }
+            ul.append(li);
+        }
+        return ul;
+    }
+
+
+    function createTree(data) {
+        let container = document.getElementById("container");
+        let ul = parseObject(data);
+        container.append(ul);
+    }
+
+    createTree(data);
+
+</script>
+</body>
+</html>

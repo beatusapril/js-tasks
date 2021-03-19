@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        overflow-x: scroll;
+    }
+
+    #example {
+        width: 300px;
+        height: 200px;
+        border: 25px solid #E8C48F;
+        padding: 20px;
+        overflow: auto;
+    }
+</style>
+<body>
+
+<div id="example">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem
+        nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat.
+        Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit
+        lobortis nisl ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script>
+    function getSizeElemBottom(elem) {
+        return elem.scrollHeight - elem.clientHeight - elem.scrollTop;
+    }
+
+    let elem = document.getElementById('example');
+    console.log(elem.scrollTop);
+    console.log(getSizeElemBottom(elem));
+</script>
+</body>
+</html>

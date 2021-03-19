@@ -1,0 +1,36 @@
+<!--
+Напишите интерфейс для создания списка.
+
+Для каждого пункта:
+
+Запрашивайте содержимое пункта у пользователя с помощью prompt.
+Создавайте элемент <li> и добавляйте его к <ul>.
+Процесс прерывается, когда пользователь нажимает Esc или вводит пустую строку.
+Все элементы должны создаваться динамически.
+Если пользователь вводит HTML-теги -– пусть в списке они показываются как обычный текст.-->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<ul id="my-list">
+
+</ul>
+
+<script>
+    let list = document.getElementById('my-list');
+    while (true) {
+        let text = prompt("Введите элемент списка");
+        if (!text) {
+            break;
+        }
+        let li = document.createElement('li');
+        li.innerHTML = text;
+        list.append(li);
+    }
+</script>
+</body>
+</html>
